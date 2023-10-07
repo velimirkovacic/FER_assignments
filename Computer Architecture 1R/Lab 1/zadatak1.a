@@ -1,0 +1,89 @@
+        ORG 0
+
+        ;GLAVNI PROGRAM
+        
+GLAVNI  MOV R1, #0x500                  ;R1 - izvorišna lokacija podataka
+        MOV R2, #0x1000                 ;R2 - odredišni blok podataka
+        LDR R7, ZAV_P                   ;R7 = 0x808080 - završni podatak ulaza
+        MOV SP, #0x4000                 ;inicijalizacija stoga na mem. adr. 0x4000
+        
+PETLJA  LDR R4, [R1], #4                ;R4 - broj operacije (0, 1, 2, 3)
+        CMP R4, R7                      ;provjera kraja bloka
+        BEQ KRAJ                        
+
+        LDMIA R1!, {R5, R6}             ;R5 - 1. operand
+                                        ;R6 - 2. operand
+
+ZBR     CMP R4, #0                      ;provjera operacije
+        ADDEQ R5, R5, R6                ;R5 = R5 + R6 (zbroj)                        
+        BEQ SPREMI
+
+ODU     CMP R4, #1
+        SUBEQ R5, R5, R6                ;R5 = R5 - R6
+        BEQ SPREMI
+
+MNO     CMP R4, #2
+
+        MULEQ R0, R5, R6                ;R5 = R0 = R5 * R6
+        MOVEQ R5, R0
+        BEQ SPREMI
+
+DJ      STMFD SP!, {R5, R6}             ;spremanje ulaznih podataka funkcije na stog
+        BL POTP                         ;poziv funkcije (potprograma) za dijeljenje
+        LDR R5, [SP]                    ;skidanje rezultata sa stoga
+        MOV SP, #0x4000                 ;pražnjenje stoga
+
+SPREMI  STR R5, [R2], #4
+        B PETLJA
+
+
+KRAJ    MVN R7, #0                      ;R7 = 0xFFFFFFFF -završni podatak izlaza
+        STR R7, [R2]                    ;spremi završni podatak izlaza
+        SWI 0x123456
+
+ZAV_P   DW 0x80808080                   ;završni podatak spremljen u mem.
+                                        ;jer se ne može napisati kao 8 bitna vrijednost
+                                        ;rotirana za paran broj bitova
+
+        ;POTPROGRAM
+
+
+POTP    SUB SP, SP, #4                  ;rađenje mjesta za rezultat na stogu
+        STMFD SP!, {R0, R1, R2, R3}     ;spremanje konteksta, vrijednosti registara 
+                                        ;koji će se koristiti u funkciji
+        LDR R0, [SP, #0x14]             ;R0 - 1. operand
+        LDR R1, [SP, #0x18]             ;R1 - 2. operand
+        MOV R2, #0                      ;R2 - rezultat (cjelobrojnog) dijeljenja, R2 = R0 / R1
+        MOV R3, #0                      ;R3 - zastavica za negativnost rezultata (ili R0 ili R1 negativan)
+
+DIV0    CMP R1, #0                      ;usporedba djeljitelja s brojem 0
+        MOVEQ R2, #0                    ;ako se dijeli s 0 vraćamo rezultat 0
+        BEQ KRJ_P1                      ;i izlazimo iz funkcije
+
+NEG2    RSBMI R1, R1, #0                ;uklanjamo negativan predznak
+        ADDMI R3, R3, #1                   
+
+NEG1    CMP R0, #0                      ;usporedba djeljenika s brojem 0
+        RSBMI R0, R0, #0                ;uklanjamo negativan preznak
+        ADDMI R3, R3, #1
+ 
+P1      SUBS R0, R0, R1                 ;R0 = R0 - R1
+        ADDPL R2, R2, #1                ;ako je razlika veća od 0 povećaj rezultat za 1
+        BPL P1                          ;i nastavi vrtit petlju
+        
+KRJ_P1  CMP R3, #1                      ;ako je samo 1 od djeljitelja i djeljenika negativan, rezultat će biti negativan
+        RSBEQ R2, R2, #0                
+        STR R2, [SP, #0x10]
+        LDMFD SP!, {R0, R1, R2, R3}     ;obnova konteksta
+        MOV PC, LR
+        
+
+ ORG 0x500
+        dw 3, 0xFFFF1234, 0x1234FFFF
+        dw 3, 0xFFFF1234, 0xF234FFFF
+        dw 3, 0x0000000C, 0x00000004
+        dw 3, 0x00001234, 0xEFFFFFF5
+        dw 0X80808080
+
+ ORG 0X1000
+        DW 0,0,0,0,0

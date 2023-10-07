@@ -1,0 +1,138 @@
+        ORG 0
+        B RESET                         ; Poziv potprograma za posluživanje iznimke RESET.
+
+        ORG 0x18
+        B IRQ                           ; Poziv potprograma za posluživanje iznimke IRQ.
+
+        ORG 0x1C
+        B FIQ                           ; Poziv potprograma za posluživanje iznimke FIQ.
+
+
+; POTPROGRAM FIQ - Obrada događaja nakon što RTC izbroji 3 sekunde.
+
+        ; DMAC:
+FIQ     LDR R8, DMAC                    ; Učitavanje adrese DMAC-a u R8.
+                
+        MOV R9, #0x500                  ; Upisivanje broja 0x500 u R9.
+        STR R9, [R8, #16]               ; Postavljanje adrese izvorišnog bloka podataka na 0x500.
+        
+        MOV R9, #0x700                  ; Upisivanje broja 0x700 u R9.
+        STR R9, [R8, #20]               ; Postavljanje adrese odredišnog bloka podataka na 0x700.
+
+        MOV R9, #0010                   ; Konfiguracija veličina:
+        STR R9, [R8, #24]               ;       - veličina bloka na 1 (B = 1, BS = 0),
+                                        ;       - veličina prijenosa na 10 (TS = 10).
+        
+        MOV R9, #0                      ; Upisivanje broja 0 u R9.
+        STR R9, [R8, #4]                ; Postavljanje DMAC-a kao nespremnog.
+
+        MOV R9, #1                      ; Upisivanje broja 1 u R9.
+        STR R9, [R8]                    ; Pokretanje DMAC-a. 
+
+        ; RTC:
+        LDR R8, RTC                     ; Učitavanje adrese RTC-a u R8.
+        
+        MOV R9, #0                      ; Upisivanje broja 0 u R9.
+        STR R9, [R8, #16]               ; Onemogućavanje RTC-u da postavlja prekide (FIQ).
+
+        SUBS PC, LR, #4                 ; Povratak iz potprograma.
+        
+
+; POTPROGRAM IRQ - Obrada događaja nakon što DMAC završi s prijenosom.
+
+IRQ     STMFD SP!, {R0 - R2}            ; Spremanje konteksta na stog IRQ-a.
+
+        ; DMAC:
+        LDR R0, DMAC                    ; Učitavanje adrese DMAC-a u R0.
+        LDR R1, [R0, #20]               ; Učitavanje trenutne adrese izvorišnog bloka DMAC-a u R1.
+        
+        LDR R2, ZAKLJ                   ; Učitavanje vrijednosti za zaključivanje bloka podataka.
+        STR R2, [R1]                    ; Spremanje vrijednosti za zaključivanje na kraj bloka podataka.
+
+        MOV R1, #0                      ; Upisivanje broja 0 u R1.
+        STR R1, [R0, #4]                ; Postavljanje DMAC-a kao nespremnog.
+
+        LDR R2, [SP, #12]               ; Učitavanje brojača za ponavljanje transfera podataka.
+        CMP R2, #1                      ; Uspoređivanje brojača s brojem 1
+        BLE KR_IRQ                      ; Ako je manji ili jednak 1 idi na kraj potprograma.
+
+        ; RTC:
+        LDR R0, RTC                     ; Učitavanje adrese RTC-a u R0.
+        
+        STR R1, [R0, #12]               ; Postavljanje brojača RTC na broj 0.
+        STR R1, [R0, #8]                ; Brisanje stanja spremnosti RTC-a.
+       
+        MOV R1, #1                      ; Upisivanje broja 1 u R1.
+        STR R1, [R0, #16]               ; Omogućavanje RTC-u da postavlja prekide.
+
+        SUB R2, R2, #1                  ; Snižavanje vrijednosti brojača za 1.
+        STR R2, [SP, #12]               ; Spremanje brojača na stog IRQ-a.
+
+KR_IRQ  LDMFD SP!, {R0 - R2}            ; Obnavljanje konteksta sa stoga IRQ-a.
+        SUBS PC, LR, #4                 ; Povratak iz potprograma.
+
+
+; PORTPROGRAM RESET - Inicijalizacija stogova i načina rada.
+
+RESET   MSR CPSR, #0b11010010           ; Promjena načina rada na IRQ s onemogućenim prekidima.
+        MOV SP, #0x10000                ; Inicijalizacija stoga R13_irq za IRQ.
+
+        LDR R0, BROJAC                  ; Učitavanje vrijednosti brojača u R0.
+        STMFD SP!, {R0}                 ; Spremanje brojača na stog IRQ-a.
+
+        MSR CPSR, #0b11010011           ; Promjena načina rada na SVC s onemogućenim prekidima.
+        
+        ; FIQ ne treba stog jer ima sasvim dovoljno registara,
+        ; a u glavnom programu stog ne koristimo, stoga (hehe) ga nećemo inicijalizirati.
+
+
+; GLAVNI PROGRAM
+
+        ; RTC:
+MAIN    LDR R0, RTC                     ; Učitavanje adrese RTC-a u R0.
+        
+        LDR R1, VRIJEM                  ; Učitavanje trajanja RTC-a u R1.
+        STR R1, [R0, #4]                ; Postavljanje trajanja RTC-a.
+
+        MOV R1, #0                      ; Upisivanje broja 0 u R1.
+        STR R1, [R0, #16]               ; Onemogućavanje RTC-u da postavlja prekide.
+       
+        ; DMAC:
+        LDR R0, DMAC                    ; Učitavanje adrese DMAC-a u R0.
+        
+        MOV R1, #0x500                  ; Upisivanje broja 0x500 u R1.
+        STR R1, [R0, #16]               ; Postavljanje adrese izvorišnog bloka podataka na 0x500.
+        
+        MOV R1, #0x700                  ; Upisivanje broja 0x700 u R1.
+        STR R1, [R0, #20]               ; Postavljanje adrese odredišnog bloka podataka na 0x700.
+
+        MOV R1, #0010                   ; Konfiguracija veličina:
+        STR R1, [R0, #24]               ;       - veličina bloka na 1 (B = 1, BS = 0),
+                                        ;       - veličina prijenosa na 10 (TS = 10).
+
+        MOV R1, #0b10101100             ; Upisivanje željenog "configa" za DMAC u R1.
+        STR R1, [R0, #28]               ; Postavljanje "configa" u DMAC-u (omogućeni prekidi, transfer riječi...)
+
+        MRS R2, CPSR                    ; Upisivanje CPSR-a u R2.
+        BIC R2, R2, #0b11000000         ; Skidanje maski s bitova za prekide.
+        MSR CPSR, R2                    ; Omogućavanje brzih i normalnih prekida (FIQ, IRQ) u SVC načinu rada.
+
+        MOV R1, #1                      ; Upisivanje broja 1 u R1.
+        STR R1, [R0]                    ; Pokretanje DMAC-a.
+
+
+PETLJA  B PETLJA                        ; Beskonačna petlja koja predstavlja neki koristan rad.
+
+        SWI 0x123456                    ; Kraj programa (nedostižan).
+
+
+; DEFINIRANE KONSTANTE U MEMORIJI
+
+RTC     DW 0xFFFF0E00           ; Adresa RTC-a.
+DMAC    DW 0x00FF0000           ; Adresa DMAC-a.
+ZAKLJ   DW 0x80808080           ; Vrijednost za zaključivanje bloka podataka.
+VRIJEM  DW 3                    ; f = 1 Hz, vrijeme = 3 s -> brojač broji do 3
+BROJAC  DW 5                    ; DMAC radi posao 5 puta.
+
+        ORG 0x700
+        DW 0,0,0,0,0,0,0,0,0,0,0

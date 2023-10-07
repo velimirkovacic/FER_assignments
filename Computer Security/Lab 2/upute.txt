@@ -1,0 +1,58 @@
+1. Potrebno je instalirati 2 knjižnice za python (typer i bcrypt) što se može učiniti iz naredbenog retka pozivajući sljedeće naredbe:
+    pip install typer
+    pip install bcrypt
+
+2.1 Za program "usermgmt" postoje 4 vrste naredbi:
+
+    add         - služi za dodavanje korisničkog računa
+                - zahtjeva upis lozinke i ponovljene lozinke s određenom kompleksnošću
+                - poziv:
+                    python usermgmt.py add sgros
+
+                - mogući odgovori:
+                    User sgros successfuly added.
+                    User add failed. Password mismatch.
+
+
+    passwd      - služi za izmjenu lozinke određenog korisnika 
+                - zahtjeva upis nove lozinke i nove ponovljene lozinke s određenom kompleksnošću
+                - poziv:
+                    python usermgmt.py passwd sgros
+
+                -mogući odgovori:
+                    Password change successful.
+                    Password change failed. Password mismatch.
+                    User does not exist.
+
+
+    forcepass   - služi za forsiranje izmjene lozinke korisnika pri sljedećoj autentifikaciji
+                - poziv:
+                    python usermgmt.py forcepass sgros
+
+                -mogući odgovori:
+                    User will be requested to change password on next login.
+                    User does not exist.
+
+
+    dlt         - služi za brisanje korisničkog računa
+                - poziv:
+                    python usermgmt.py dlt sgros
+
+                - mogući odgovori:
+                    User successfuly removed.
+                    User does not exist.
+
+
+2.2 Za program "login" postoji 1 naredba:
+
+    "username"  - služi za autentifikaciju
+                - zahtjeva upis lozinke
+                - poziv:
+                    python usermgmt.py sgros
+
+                - mogući odgovori:
+                    Login sucessful.
+                    Username or password incorrect.
+                    Password change failed. Password mismatch. (slučaj kada mora mijenjati lozinku)
+
+

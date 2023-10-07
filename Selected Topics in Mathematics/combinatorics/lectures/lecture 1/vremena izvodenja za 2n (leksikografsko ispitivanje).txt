@@ -1,0 +1,58 @@
+Podnizova sa sumom 2n, za niz duljine n = 0 , ima: 1 
+Izvodenje traje:  0:00:00
+Podnizova sa sumom 2n, za niz duljine n = 1 , ima: 0 
+Izvodenje traje:  0:00:00
+Podnizova sa sumom 2n, za niz duljine n = 2 , ima: 0 
+Izvodenje traje:  0:00:00.000998
+Podnizova sa sumom 2n, za niz duljine n = 3 , ima: 1 
+Izvodenje traje:  0:00:00
+Podnizova sa sumom 2n, za niz duljine n = 4 , ima: 1 
+Izvodenje traje:  0:00:00
+Podnizova sa sumom 2n, za niz duljine n = 5 , ima: 3 
+Izvodenje traje:  0:00:00
+Podnizova sa sumom 2n, za niz duljine n = 6 , ima: 5 
+Izvodenje traje:  0:00:00
+Podnizova sa sumom 2n, za niz duljine n = 7 , ima: 8 
+Izvodenje traje:  0:00:00
+Podnizova sa sumom 2n, za niz duljine n = 8 , ima: 13
+Izvodenje traje:  0:00:00
+Podnizova sa sumom 2n, za niz duljine n = 9 , ima: 21
+Izvodenje traje:  0:00:00
+Podnizova sa sumom 2n, za niz duljine n = 10 , ima: 31
+Izvodenje traje:  0:00:00.001994
+Podnizova sa sumom 2n, za niz duljine n = 11 , ima: 46
+Izvodenje traje:  0:00:00.003991
+Podnizova sa sumom 2n, za niz duljine n = 12 , ima: 67
+Izvodenje traje:  0:00:00.006979
+Podnizova sa sumom 2n, za niz duljine n = 13 , ima: 95
+Izvodenje traje:  0:00:00.015958
+Podnizova sa sumom 2n, za niz duljine n = 14 , ima: 134
+Izvodenje traje:  0:00:00.033908
+Podnizova sa sumom 2n, za niz duljine n = 15 , ima: 186
+Izvodenje traje:  0:00:00.071807
+Podnizova sa sumom 2n, za niz duljine n = 16 , ima: 253
+Izvodenje traje:  0:00:00.164587
+Podnizova sa sumom 2n, za niz duljine n = 17 , ima: 343
+Izvodenje traje:  0:00:00.337204
+Podnizova sa sumom 2n, za niz duljine n = 18 , ima: 461
+Izvodenje traje:  0:00:00.685183
+Podnizova sa sumom 2n, za niz duljine n = 19 , ima: 611
+Izvodenje traje:  0:00:01.381105
+Podnizova sa sumom 2n, za niz duljine n = 20 , ima: 806
+Izvodenje traje:  0:00:02.954668
+Podnizova sa sumom 2n, za niz duljine n = 21 , ima: 1055
+Izvodenje traje:  0:00:06.138707
+Podnizova sa sumom 2n, za niz duljine n = 22 , ima: 1369
+Izvodenje traje:  0:00:12.673735
+Podnizova sa sumom 2n, za niz duljine n = 23 , ima: 1768
+Izvodenje traje:  0:00:27.314642
+Podnizova sa sumom 2n, za niz duljine n = 24 , ima: 2270
+Izvodenje traje:  0:00:56.812232
+Podnizova sa sumom 2n, za niz duljine n = 25 , ima: 2896
+Izvodenje traje:  0:01:53.072495
+Podnizova sa sumom 2n, za niz duljine n = 26 , ima: 3678
+Izvodenje traje:  0:04:07.529010
+Podnizova sa sumom 2n, za niz duljine n = 27 , ima: 4649
+Izvodenje traje:  0:08:26.779430
+Podnizova sa sumom 2n, za niz duljine n = 28 , ima: 5847
+Izvodenje traje:  0:17:47.279477

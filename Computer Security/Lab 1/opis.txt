@@ -1,0 +1,18 @@
+U datoteku baza.txt pohranjuju se sljedeći podaci: enkriptirana mapa adresa i lozinki, "nonce" za ChaCha20, "salt" za PBKDF2 i autentifikacijski kod MAC.
+
+Povjerljivost adresa i zaporki osigurana je simetričnom protočnom šifrom ChaCha20. Pohranjuje se šifrat baze podataka (adresa i zaporki) i "nonce" od 12 nedeterministički generiranih bajtova koji se generira iznova za svako šifriranje ChaCha20-om.
+
+Ključ za ChaCha20 generiran je determinističkom funkcijom za derivaciju ključa PBKDF2 koja prima 2 argumenta, lozinku (glavna lozinka korisnika) i "salt" od 16 nedeterministički generiranih bajtova. Generira se niz od 160 bitova od kojih prvih 128 služi za ključ za mac, a ostalih 32 za ključ za ChaCha20.
+
+Integritet baze osiguran je kodom za autentifikaciju poruke (MAC) generiranog HMAC-om (generator MAC-a temeljen na funkciji sažetka) nad trojkom: baza podataka, "nonce" i "salt" koristeći ključ za mac. Time se mogu detektirati promjene na bilo kojoj od te 3 stavke.
+
+
+Temeljem sigurnosti simetrične protočne šifre ChaCha20 (ako se pri svakoj enkripciji koristi novi "nonce") slijedi sljedeće:
+	Šifrat baze u datoteci baza.txt nije moguće dekriptirati bez znanja ključa deriviranog iz glavne lozinke. 
+	Znanje nekih pohranjenih parova adresa-lozinka u bazi neće pomoći u otkrivanju ostalih parova. 
+	Dakle povjerljivost je osigurana.
+
+Temeljem "teškog" pronalaska kolizija algoritma sažetka SHA-512 slijedi sljedeće:
+	Nije moguće pronaći MAC koji bi bio jednak onom za izmijenjene podatke.
+	Nije moguće proizvesti ključ koji je jednak onom koji će biti deriviran iz glavne lozinke bez njenog poznavanja.
+	Dakle integritet je osiguran.

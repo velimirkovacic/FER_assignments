@@ -1,0 +1,32 @@
+1. Potrebno je instalirati 2 knjižnice za python (typer i pycryptodome) što se može učiniti iz naredbenog retka pozivajući sljedeće naredbe:
+    pip install typer
+    pip install pycryptodome
+
+2. Postoje 3 vrste komandi nad ovim alatom naredbenog retka:
+
+    init    - služi za inicijalizaciju baze podataka
+            - stvorit će datoteku "baza.txt" i omogućit će korištenje ostalih naredbi
+            - poziv:
+                python tajnik.py init masterPassword
+
+            - mogući odgovori:
+                Password manager initialized.
+
+
+    put     - služi za dodavanje lozinke za adresu u bazu podataka 
+            - poziv:
+                python tajnik.py put masterPassword address password
+
+            -mogući odgovori:
+                Stored password for: address.
+                Master password incorrect or integrity check failed.
+
+
+    get     - služi za dohvaćanje postojeće lozinke za adresu u bazi podataka
+            - poziv:
+                python tajnik.py get masterPassword address
+
+            -mogući odgovori:
+                Password for address is: password.
+                There is no password stored for: address.
+                Master password incorrect or integrity check failed.

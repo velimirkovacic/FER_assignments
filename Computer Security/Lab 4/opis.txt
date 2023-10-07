@@ -1,0 +1,164 @@
+telnet 198.51.100.10
+ Vidi se sljedeći razgovor:
+	Klijent:
+		........... ..!.."..'.....#....P...... .38400,38400....'.......vt100........1234
+		.1234
+		.
+		.
+	Poslužitelj:
+		..... ..#..'........!.."..... .....'...............Debian GNU/Linux 9
+		www login: 1234
+		Password: 
+
+
+		Login incorrect
+		www login: 
+
+
+ssh 198.51.100.10
+ Vidi se sljedeći razgovor:
+	Klijent:
+		SSH-2.0-OpenSSH_7.4p1 Debian-10+deb9u7
+		......P.U.:.8B...$yt.%...0curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,ext-info-c..."ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ssh-rsa....chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc....chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc....umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh		.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1....umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1....none,zlib@openssh.com,zlib....none,zlib@openssh.com,zlib...........................,..... .\.y.r..4...M...;'..6.N...z....}..........
+		.............Se..#V..M>.A..........J..p./.PI.....5.3DP>%....J.....w!>.O.I*.yU.\..........".............XG.m.....jh.........7 >..H.y..=....;1H.Z....?2d..o...P1..o1.....^la.k..6.....{.Cw.{.. .Nw.......
+	Poslužitelj:
+		SSH-2.0-OpenSSH_7.4p1 Debian-10+deb9u7
+		...4...../..f....*Kc......curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1...Assh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519...lchacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com...lchacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com....umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1....umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1....none,zl			ib@openssh.com....none,zlib@openssh.com.......................
+		....h....ecdsa-sha2-nistp256....nistp256...A..S.(.F..F.o.|.*.........qNP...).n...w.....Y..4.*..__
+		)u.*Y.....M... .nx..!.....i.-....3.S,.g..Q..-.T...d....ecdsa-sha2-nistp256...I... ..<..B	.KB.+.Cu..%s!....D$....6:...!..f.....]......av.JS.B.!...Z.+.................
+		...........tp.@,$.........E...%ZL..V+%.....A....'.....p
+		...\P......p..L ...?j..a}y..&..3...8.pM..._...... N.E..a.*.../.........e..A..T...U.....10C.1.xhQ.<N*.+.N.N..Y..&....~.....c.[.Xy...E.~...X.v..Y..D.S.....d0k..x`A..~%,=2.f3;hLS..gy....l.H...A.Aa9L..OO.^.._.2............#.(..*..7....t.1..m....,3
+
+
+U komunkaciji za SSH vidimo nazive brojnih kriptografskih sustava, dok u komunikaciji za TELNET to ne vidimo.
+
+
+Stvaranje vatrozida:
+	Svaka naredba je oblika: 
+		$IPT -A FORWARD -p udp --dport 53 -d 203.0.113.0/24 -s 198.51.100.10 -j ACCEPT
+		-A označava što se zahtjeva od vatrozida da napravi (proslijedi dalje u ovom slučaju)
+		-p označava protokol poruke (npr. udp)
+		--dport označava odredišni priključak (npr. 53)
+		-d označava odredišnu adresu (npr. mreža 203.0.113.0/24)
+		-s označava izvorišnu adresu (npr. 198.51.100.10)
+		-j označava što će vatrozid napraviti s porukom (u ovom slučaju će prihvatiti i proslijediti na odredište)
+
+	DMZ
+		Web poslužitelju (tcp /80) i DNS poslužitelju (udp/53 i tcp/53) pokrenutima na www se može pristupiti s bilo koje adrese (iz Interneta i iz lokalne mreže)
+			(WEB POSLUŽITELJ)	$IPT -A FORWARD -p tcp --dport 80 -d 198.51.100.10 -j ACCEPT
+			(DNS POSLUŽITELJ)(tcp)	$IPT -A FORWARD -p tcp --dport 53 -d 198.51.100.10 -j ACCEPT
+					 (udp)	$IPT -A FORWARD -p udp --dport 53 -d 198.51.100.10 -j ACCEPT
+		
+		SSH poslužitelju na čvoru www se može pristupiti samo iz lokalne mreže LAN.
+			$IPT -A FORWARD -p tcp --dport 22  -d 198.51.100.10 -s 10.0.0.0/24 -j ACCEPT
+			Izvorište je cijela mreža LAN, a odredište www, za SSH koristi se protokol TCP na por
+
+		S www je dozvoljen pristup poslužitelju database (LAN) na TCP portu 10000 (...)
+			$IPT -A FORWARD -p tcp --dport 10000 -d 10.0.0.100 -s 198.51.100.10 -j ACCEPT
+
+		(...) te pristup DNS poslužiteljima u Internetu (UDP i TCP port 53)
+			$IPT -A FORWARD -p tcp --dport 53 -d 203.0.113.0/24 -s 198.51.100.10 -j ACCEPT
+			$IPT -A FORWARD -p udp --dport 53 -d 203.0.113.0/24 -s 198.51.100.10 -j ACCEPT
+
+			 
+		S www je zabranjen pristup svim ostalim adresama i poslužiteljima
+			$IPT -A FORWARD -s 198.51.100.10 -j DROP
+			$IPT -A INPUT -s 198.51.100.10 -j DROP
+			Zabranjene su sve poruke s izvorištem www. 
+
+		Pristup svim ostalim adresama i poslužiteljima u DMZ je zabranjen.
+			$IPT -A FORWARD -d 198.51.100.10/24 -j DROP
+
+
+	LAN 
+		Pristup SSH poslužitelju na cvoru database, koji se nalazi u lokalnoj mreži LAN, dozvoljen je samo racunalima iz mreže LAN.
+			(promet unutar mreže neće ići preko vatrozida)
+		Web poslužitelju na cvoru database, koji sluša na TCP portu 10000, može se pristupiti iskljucivo s racunala www koje se nalazi u DMZ (i s racunala iz mreže LAN).
+			(prvo pravilo je već definirano u DMZ dijelu)
+			(opet promet unutar mreže neće ići preko vatrozida)
+
+		 S racunala database je zabranjen pristup svim uslugama u Internetu i u DMZ.
+			$IPT -A FORWARD -s 10.0.0.100 -d 198.51.100.0/24 -j DROP
+			$IPT -A FORWARD -s 10.0.0.100 -d 203.0.113.0/24 -j DROP
+			Ova pravila premještena su na vrh pravila skripte jer su specifičnija od prijašnje definiranih 
+			(npr. promet prema www-u iz LAN-a je prihvaćen iako database ne smije)
+
+		S racunala iz lokalne mreže (osim s database) se može pristupati svim racunalima u Internetu, ali samo korištenjem protokola HTTP (tcp/80) i DNS (udp/53 i tcp/53).
+			$IPT -A FORWARD -p tcp --dport 80 -s 10.0.0.0/24 -d 203.0.113.0/24 -j ACCEPT
+			$IPT -A FORWARD -p tcp --dport 53 -s 10.0.0.0/24 -d 203.0.113.0/24 -j ACCEPT
+			$IPT -A FORWARD -p udp --dport 53 -s 10.0.0.0/24 -d 203.0.113.0/24 -j ACCEPT
+		
+		Pristup iz vanjske mreže u lokalnu LAN mrežu je zabranjen.
+			$IPT -A FORWARD -d 10.0.0.0/24 -j DROP
+			Sve ostale poruke prema LAN-u se odbacuju
+
+
+	FW
+		Na FW je pokrenut SSH poslužitelj kojem se može pristupiti samo iz lokalne mreže i to samo sa cvora PC.
+			$IPT -A INPUT -p tcp --dport 22  -s 10.0.0.20 -j ACCEPT
+			SSH koristi TCP na priključku 22.
+
+		Pristup svim ostalim uslugama (portovima) na cvoru FW je zabranjen.
+			$IPT -A INPUT -j DROP
+
+		Sve ostalo se odbacuje pretpostavljenom politikom:
+			$IPT -P INPUT DROP
+			$IPT -P OUTPUT DROP
+			$IPT -P FORWARD DROP
+
+Testiranje vatrozida:
+	Napomena: ono što je "dostupno" nije filtrirano vatrozidom.
+
+		Dostupnost TCP usluga na www-u iz interneta:
+			sudo himage client nmap -n -Pn "-p20-25,53,80,443" 198.51.100.10
+			- dostupni su 53/tcp (dns) i 80/tcp (http)
+		Dostupnost TCP usluga na www-u iz LAN-a:
+s			udo himage PC nmap -n -Pn "-p20-25,53,80,443" 198.51.100.10
+			- dostupni su 22/tcp (ssh) 53/tcp (dns) i 80/tcp (http)
+		Dostupnost UDP usluga na www-u iz interneta:
+			sudo himage client nmap -n -Pn -sU "-p20-25,53,80,443" 198.51.100.10
+			- dostupan je  53/udp (dns)
+		Dostupnost UDP usluga na www-u iz LAN-a:
+			sudo himage PC nmap -n -Pn -sU "-p20-25,53,80,443" 198.51.100.10
+			- dostupan je  53/udp (dns)
+		Dostupnost databasea www-u:
+			sudo himage www nmap -n -Pn "-p20-25,53,80,443,10000" 10.0.0.100
+			- dostupan je 10000/tcp
+		Dostupnost DNS poslužitelja na internetu www-u:
+			sudo himage www nmap -n -Pn "-p20-25,53,80,443" 203.0.113.10 
+			- dostupan je 53/tcp (dns), ali je zatvoren (nema aktivne aplikacije)
+		Dostupnost databasea LAN-u:
+			sudo himage PC nmap -n -Pn "-p20-25,53,80,443,10000" 10.0.0.100
+			- svi priključci su dostupni
+		Dostupnost DMZ-a i interneta databaseu:
+			sudo himage database nmap -n -Pn "-p20-25,53,80,443" 203.0.113.10
+			sudo himage database nmap -n -Pn "-p20-25,53,80,443" 203.0.113.10
+			- nije dostupan ni jedan priključak
+		Dostupnost interneta PC-u:
+			sudo himage PC nmap -n -Pn "-p20-25,53,80,443" 203.0.113.10
+			sudo himage PC nmap -n -Pn -sU "-p20-25,53,80,443" 203.0.113.10
+			- dostupni su 53/udp (dns), 53/tcp (dns) i 80/tcp (http)
+		Dostupnost LAN-a internetu:
+			sudo himage client nmap -n -Pn "-p20-25,53,80,443" 10.0.0.20
+			sudo himage client nmap -n -Pn "-p20-25,53,80,443" 10.0.0.100
+			- nije dostupan ni jedan priključak 
+		Dostupnost SSH na FW PC-u:
+			sudo himage PC nmap -n -Pn "-p20-25,53,80,443" 10.0.0.1
+			- dostupan je 22/tcp (ssh)
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

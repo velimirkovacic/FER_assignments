@@ -1,0 +1,92 @@
+        ORG 0
+        B RESET                         ; Poziv potprograma za posluživanje iznimke RESET.
+
+        ORG 0x18        
+        B IRQ                           ; Poziv potprograma za posluživanje iznimke IRQ.
+
+
+
+; POTPROGRAM RESET - Inicijalizacija stogova i načina rada.
+
+RESET   MSR CPSR, #0b11010010           ; Promjena načina rada na IRQ s onemogućenim prekidima.
+        MOV SP, #0x10000                ; Inicijalizacija stoga R13_irq za IRQ.
+
+
+        MSR CPSR, #0b11010011           ; Promjena načina rada na SVC s onemogućenim prekidima.
+        
+
+
+; GLAVNI PROGRAM
+
+GLAVNI  LDR R0, GPIO                    ; Učitavanje adrese GPIO-a u R0.
+        
+        MOV R1, #0b11100000             ; Upisivanje rasporeda ulaza i izlaza GPIO-ovih vrata A (PA_DR) u R1.
+        STR R1, [R0, #8]                ; Postavljanje ulaza i izlaza GPIO-ovih vrata A (PA_DR) prema podatku iz R1.
+
+        MOV R1, #0b00100000             ; Upisivanje rasporeda podataka GPIO-ovih vrata A (PA_DR) u R1. 
+        STR R1, [R0]                    ; Postavljanje podataka u GPIO-ova vrata A (PA_DR) prema podatku iz R1.
+
+
+        LDR R0, RTC                     ; Učitavanje adrese RTC-a u R0.
+
+        LDR R1, KONST                   ; Učitavanje konstante KONST (brojača za RTC) u R1.
+        STR R1, [R0, #4]                ; Postavljanje registra usporedbe (MR-a) u RTC-u na vrijednost iz R1.
+    
+        MOV R1, #1                      ; Upisivanje broja 1 u R1.
+        STR R1, [R0, #16]               ; Postavljanje upravljačkog registra (CR-a) u RTC-u na vrijednost iz R1.
+                      
+        MOV R1, #0                      ; Upisivanje broja 0 u R1.
+        STR R1, [R0, #12]               ; Postavljanje registra za punjenje brojila (LR-a) u RTC-u na vrijednost iz R1.
+
+
+        MRS R0, CPSR                    ; Dohvaćanje vrijednosti statusnog registra (CPSR) u R0.
+        BIC R0, R0, #0b10000000         ; Obrtanje 7. bita u R0. Kada je u CPSR-u 7. bit I = 0 prekidi su omogućeni.
+        MSR CPSR, R0                    ; Upisivanje R0 u statusni registar (CPSR).
+
+
+PETLJA  B PETLJA                        ; Beskonačna petlja koja predstavlja neki koristan rad.
+        
+        SWI 0x123456                    ; Kraj programa (nedostižan).
+
+
+; POTPROGRAM IRQ - Izmjena stanja semafora.
+
+IRQ     STMFD SP!, {R0 - R2}            ; Spremanje konteksta na stog IRQ-a.
+
+        LDR R0, GPIO                    ; Učitavanje adrese GPIO-a u R0.
+        LDR R1, [R0]                    ; Učitavanje registra podataka vrata A GPIO-a (PA_DR) u R1.
+        AND R1, R1, #0b11100000         ; Negiranje svih bitova osim 7., 6. i 5.
+
+        MOV R2, #0b01100000             ; Upisivanje novog stanja u R2, inicijalno je CRVENO-ŽUTO (011).
+
+        CMP R1, #0b00100000             ; Provjerava se je li prošlo svijetlo CRVENO (001).
+        BEQ PROMJ                       ; Ako je skoči na PROMJ (promjena svjetla).
+
+        CMP R1, #0b01100000             ; Provjerava se je li prošlo svijetlo CRVENO-ŽUTO (011).
+        MOVEQ R2, #0b10000000           ; Ako je upiši u R2 ZELENO (100).
+        BEQ PROMJ                       ; Ako je skoči na PROMJ (promjena svjetla).
+
+        CMP R1, #0b10000000             ; Provjerava se je li prošlo svijetlo ZELENO (100).
+        MOVEQ R2, #0b01000000           ; Ako je upiši u R2 ŽUTO (010).
+        BEQ PROMJ                       ; Ako je skoči na PROMJ (promjena svjetla).
+        
+        MOV R2, #0b00100000             ; Inače je ostalo samo još ŽUTO, dakle u R2 upiši CRVENO (001).
+
+PROMJ   STR R2, [R0]                    ; Stanje registra R2 upiši u registar podataka vrata A GPIO-a (PA_DR).
+
+        LDR R0, RTC                     ; Učitavanje adrese RTC-a u R0.
+        MOV R1, #0                      ; Upisivanje broja 0 u R1 
+        STR R1, [R0, #12]               ; Ponovno postavljanje registra za punjenje brojila (LR-a) u RTC-u na vrijednost iz R1.
+        STR R1, [R0, #8]                ; Brisanje stanja spremnosti registra STAT/EOI u RTC-u.
+
+        LDMFD SP!, {R0 - R2}            ; Obnavljanje konteksta sa stoga IRQ-a.
+KR_IRQ  SUBS PC, LR, #4                 ; Povratak iz potprograma.
+
+
+
+
+; DEFINIRANE KONSTANTE U MEMORIJI
+
+KONST   DW 5                    ; f = 1 Hz, vrijeme = 5 s -> brojač broji do 5
+GPIO    DW 0xFFFF0B00           ; Adresa GPIO-a.
+RTC     DW 0xFFFF0E00           ; Adresa RTC-a.

