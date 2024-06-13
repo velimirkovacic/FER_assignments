@@ -1,0 +1,94 @@
+iter: 0 Loss: tensor(20.4465, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1000 Loss: tensor(4.2573, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2000 Loss: tensor(3.6369, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3000 Loss: tensor(3.3748, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 4000 Loss: tensor(3.2294, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 5000 Loss: tensor(3.1236, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 6000 Loss: tensor(3.0364, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 7000 Loss: tensor(2.9643, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 8000 Loss: tensor(2.9035, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 9000 Loss: tensor(2.8522, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 10000 Loss: tensor(2.8021, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 11000 Loss: tensor(0.8207, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 12000 Loss: tensor(0.6962, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 13000 Loss: tensor(0.6223, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 14000 Loss: tensor(0.5601, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 15000 Loss: tensor(0.5057, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 16000 Loss: tensor(0.4587, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 17000 Loss: tensor(0.4184, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 18000 Loss: tensor(0.3821, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 19000 Loss: tensor(0.3494, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 20000 Loss: tensor(0.3211, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 21000 Loss: tensor(0.2958, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 22000 Loss: tensor(0.2734, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 23000 Loss: tensor(0.2544, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 24000 Loss: tensor(0.2386, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 25000 Loss: tensor(0.2256, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 26000 Loss: tensor(0.2147, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 27000 Loss: tensor(0.2054, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 28000 Loss: tensor(0.1974, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 29000 Loss: tensor(0.1904, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 30000 Loss: tensor(0.1843, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 31000 Loss: tensor(0.1789, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 32000 Loss: tensor(0.1740, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 33000 Loss: tensor(0.1694, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 34000 Loss: tensor(0.1652, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 35000 Loss: tensor(0.1613, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 36000 Loss: tensor(0.1576, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 37000 Loss: tensor(0.1541, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 38000 Loss: tensor(0.1509, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 39000 Loss: tensor(0.1479, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+Train:
+0.9646875
+[(0.9839831401475237, 0.9858530405405406), (0.9871100317578928, 0.9884025439580996), (0.955824130027089, 0.9568210262828536), (0.958819913952059, 0.9490975461366863), (0.9629392971246007, 0.965200683176772), (0.9647546648237734, 0.9607708189951824), (0.9805208553885243, 0.9809362423215421), (0.9651911468812877, 0.9640273311897106), (0.9445624468988955, 0.9494022203245089), (0.9406478578892372, 0.9438037324386663)]
+[[4669    0   12    4    5   14   14    4    9   14]
+ [   1 5284   18    2    9    1    7    8   20    3]
+ [   4   14 4587   64   18   14   15   33   41    9]
+ [   7    8   34 4680    3   41    0   14   58   36]
+ [   4    0   24    4 4521   10   12   28    7   85]
+ [   6    3   11   53    2 4188   27    2   34   15]
+ [  12    3   11    7   13   27 4631    0   16    3]
+ [   4   11   33   28   11    6    1 4797   10   69]
+ [  19   20   55   60    8   38   13   14 4447   34]
+ [  10    3    9   29   94   20    1   76   42 4501]]
+Test:
+0.9378
+[(0.954045954045954, 0.9744897959183674), (0.9753954305799648, 0.9779735682819384), (0.929342492639843, 0.9176356589147286), (0.9248046875, 0.9376237623762376), (0.936105476673428, 
+0.939918533604888), (0.9302587176602924, 0.9271300448430493), (0.941358024691358, 0.9551148225469729), (0.9441723800195886, 0.9377431906614786), (0.9164054336468129, 0.9004106776180698), (0.919436052366566, 0.9048562933597621)]
+[[ 955    0   10    2    1    7   10    0   10    6]
+ [   0 1110    8    1    1    2    2    4    5    5]
+ [   5    5  947   16    5    3   10   16   10    2]
+ [   2    4   18  947    2   18    0    8   18    7]
+ [   2    0    5    2  923    4    4    4   10   32]
+ [   4    1    1   19    0  827    7    2   16   12]
+ [   9    2    9    1    9   12  915    1   13    1]
+ [   1    1   12    9    5    3    2  964    7   17]
+ [   2   11   18   11    2   11    8    3  877   14]
+ [   0    1    4    2   34    5    0   26    8  913]]
+Train:
+0.9646875
+[(0.9839831401475237, 0.9858530405405406), (0.9871100317578928, 0.9884025439580996), (0.955824130027089, 0.9568210262828536), (0.958819913952059, 0.9490975461366863), (0.9629392971246007, 0.965200683176772), (0.9647546648237734, 0.9607708189951824), (0.9805208553885243, 0.9809362423215421), (0.9651911468812877, 0.9640273311897106), (0.9445624468988955, 0.9494022203245089), (0.9406478578892372, 0.9438037324386663)]
+[[4669    0   12    4    5   14   14    4    9   14]
+ [   1 5284   18    2    9    1    7    8   20    3]
+ [   4   14 4587   64   18   14   15   33   41    9]
+ [   7    8   34 4680    3   41    0   14   58   36]
+ [   4    0   24    4 4521   10   12   28    7   85]
+ [   6    3   11   53    2 4188   27    2   34   15]
+ [  12    3   11    7   13   27 4631    0   16    3]
+ [   4   11   33   28   11    6    1 4797   10   69]
+ [  19   20   55   60    8   38   13   14 4447   34]
+ [  10    3    9   29   94   20    1   76   42 4501]]
+Test:
+0.9378
+[(0.954045954045954, 0.9744897959183674), (0.9753954305799648, 0.9779735682819384), (0.929342492639843, 0.9176356589147286), (0.9248046875, 0.9376237623762376), (0.936105476673428, 
+0.939918533604888), (0.9302587176602924, 0.9271300448430493), (0.941358024691358, 0.9551148225469729), (0.9441723800195886, 0.9377431906614786), (0.9164054336468129, 0.9004106776180698), (0.919436052366566, 0.9048562933597621)]
+[[ 955    0   10    2    1    7   10    0   10    6]
+ [   0 1110    8    1    1    2    2    4    5    5]
+ [   5    5  947   16    5    3   10   16   10    2]
+ [   2    4   18  947    2   18    0    8   18    7]
+ [   2    0    5    2  923    4    4    4   10   32]
+ [   4    1    1   19    0  827    7    2   16   12]
+ [   9    2    9    1    9   12  915    1   13    1]
+ [   1    1   12    9    5    3    2  964    7   17]
+ [   2   11   18   11    2   11    8    3  877   14]
+ [   0    1    4    2   34    5    0   26    8  913]]

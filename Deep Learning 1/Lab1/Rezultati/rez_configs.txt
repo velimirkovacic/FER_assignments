@@ -1,0 +1,86 @@
+Configuration: [784, 10] Delta: 0.1
+iter: 0 Loss: tensor(13.7492, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1000 Loss: tensor(1.0213, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2000 Loss: tensor(0.7590, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3000 Loss: tensor(0.6478, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 4000 Loss: tensor(0.5834, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 5000 Loss: tensor(0.5401, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 6000 Loss: tensor(0.5083, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 7000 Loss: tensor(0.4837, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 8000 Loss: tensor(0.4637, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 9000 Loss: tensor(0.4472, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+Train:
+0.89485
+[(0.944463031114085, 0.9532331588721932), (0.943027830394871, 0.9599525363393652), (0.8897208985704561, 0.8774756629741524), (0.8777832756061356, 0.8680476268145491), (0.8920108327691266, 0.9020883259157823), (0.8425492033739457, 0.8291828076000738), (0.9286553634379722, 0.9347752619128084), (0.9150715779314782, 0.9080606544293696), (0.8471195184866724, 0.8419073662621774), (0.8535404141616566, 0.8591359892418894)]
+[[5646    1   45   28    8   85   59   29   36   41]
+ [   1 6472   75   26   34   37   21   38  128   31]
+ [  30   47 5228  176   37   64   68   80  124   22]
+ [  23   40  107 5322   11  221    9   57  196   77]
+ [  12    8   87   10 5270   87   69   59   40  266]
+ [  78   35   43  260   13 4495   99   22  224   66]
+ [  45    6   91   25   78  116 5532    5   55    4]
+ [  13   19   79   62   37   31    6 5689   24  257]
+ [  56  103  169  139   58  214   48   28 4926   74]
+ [  19   11   34   83  296   71    7  258   98 5111]]
+Test:
+0.8946
+[(0.9377470355731226, 0.9683673469387755), (0.9554973821989529, 0.9647577092511013), (0.907707910750507, 0.8672480620155039), (0.8617021276595744, 0.8821782178217822), (0.8805970149253731, 0.9012219959266803), (0.8430493273542601, 0.8430493273542601), (0.9227557411273486, 0.9227557411273486), (0.9119373776908023, 0.9066147859922179), (0.8309278350515464, 0.8275154004106776), (0.8789743589743589, 0.8493557978196233)]
+[[ 949    0   12    7    0    7   17    2   10    8]
+ [   0 1095    8    4    3    4    4   10   12    6]
+ [   2    7  895   19    7    6    8   21   16    5]
+ [   1    6   28  891    4   39    1   11   42   11]
+ [   0    0    9    1  885   17   17    9    9   58]
+ [  16    3   10   38    2  752   17    0   43   11]
+ [   8    4   13    3   13   20  884    2    9    2]
+ [   2    1   15   12    9    5    0  932   10   36]
+ [   2   18   40   27   11   37    9    5  806   15]
+ [   0    1    2    8   48    5    1   36   17  857]]
+
+
+Configuration: [784, 100, 10] Delta: 0.05
+iter: 0 Loss: tensor(20.4746, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1000 Loss: tensor(2.2008, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2000 Loss: tensor(1.5022, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3000 Loss: tensor(1.1984, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 4000 Loss: tensor(0.9955, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 5000 Loss: tensor(0.8498, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 6000 Loss: tensor(0.7365, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 7000 Loss: tensor(0.6485, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 8000 Loss: tensor(0.5757, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 9000 Loss: tensor(0.5128, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 10000 Loss: tensor(0.4588, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 11000 Loss: tensor(0.4128, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 12000 Loss: tensor(0.3742, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 13000 Loss: tensor(0.3429, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 14000 Loss: tensor(0.3175, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 15000 Loss: tensor(0.2967, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 16000 Loss: tensor(0.2797, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 17000 Loss: tensor(0.2654, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 18000 Loss: tensor(0.2533, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 19000 Loss: tensor(0.2429, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+Train:
+0.9478333333333333
+[(0.982396750169262, 0.979908829984805), (0.9785566400473232, 0.9814595075645209), (0.94525854808826, 0.9419268210808996), (0.9297844546048334, 0.9287228837057576), (0.9444824051930304, 0.9464224580623074), (0.9277397893180558, 0.9260284080427965), (0.9658823529411765, 0.9711051030753634), (0.9552286536616565, 0.9535514764565044), (0.9262688614540466, 0.923260981028884), (0.9167225201072386, 0.9196503614052782)]
+[[5804    1   15    4    4   19   27    9   13   12]
+ [   0 6617   26   14    8   10    9   18   41   19]
+ [  14   31 5612   93   26   16   30   53   54    8]
+ [   7   16   75 5694    8  132    2   34   95   61]
+ [   7    8   39    7 5529   23   22   36   31  152]
+ [  21    8   15  137   11 5020   48   11   96   44]
+ [  28    5   28    8   33   58 5747    4   33    6]
+ [   6   10   60   42   25   11    2 5974   15  109]
+ [  26   34   65   85   27   85   30   11 5402   67]
+ [  10   12   23   47  171   47    1  115   71 5471]]
+Test:
+0.9301
+[(0.965412004069176, 0.9683673469387755), (0.9726148409893993, 0.9700440528634361), (0.9332688588007737, 0.935077519379845), (0.8990384615384616, 0.9257425742574258), (0.9226907630522089, 0.9358452138492872), (0.8933333333333333, 0.9013452914798207), (0.9474789915966386, 0.941544885177453), (0.937992125984252, 0.9270428015564203), (0.91129883843717, 0.8860369609856262), (0.91, 0.9018830525272548)]
+[[ 949    0    2    3    3    7    7    2    5    5]
+ [   1 1101    6    2    2    3    3    2    5    7]
+ [   1    4  965   17    7    0   10   19   10    1]
+ [   2    5   13  935    2   35    1    7   26   14]
+ [   4    1    4    2  919    7    7    9    7   36]
+ [   8    3    4   23    0  804   18    1   29   10]
+ [   8    3    8    0   10    8  902    0   11    2]
+ [   4    5   11   10    5    4    2  953   10   12]
+ [   2   12   15   12    4   16    6    5  863   12]
+ [   1    1    4    6   30    8    2   30    8  910]]

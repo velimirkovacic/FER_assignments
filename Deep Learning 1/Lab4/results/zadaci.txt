@@ -1,0 +1,4 @@
+3.a) 
+    Reprezentacije se računaju kao srednja vrijednost svih primjera klase koja je dodatno nomralizirana.
+    Predviđanja se vrše po udaljenosti od repreznatacije klase (što je slika sličinija reprezentu to će biti veća norma i tako će se klasificirati)
+

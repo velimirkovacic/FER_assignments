@@ -1,0 +1,141 @@
+SGD:
+
+iter: 0 Loss: tensor(16.9303, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 100 Loss: tensor(5.4984, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 200 Loss: tensor(3.3141, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 300 Loss: tensor(3.0385, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 400 Loss: tensor(3.1913, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 500 Loss: tensor(2.9810, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 600 Loss: tensor(2.4725, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 700 Loss: tensor(2.5928, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 800 Loss: tensor(2.5358, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 900 Loss: tensor(2.5132, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1000 Loss: tensor(2.6291, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1100 Loss: tensor(2.3916, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1200 Loss: tensor(2.5303, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1300 Loss: tensor(2.4249, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1400 Loss: tensor(2.1515, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1500 Loss: tensor(2.1433, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1600 Loss: tensor(2.4378, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1700 Loss: tensor(2.1170, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1800 Loss: tensor(2.4902, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1900 Loss: tensor(2.4754, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2000 Loss: tensor(2.5053, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2100 Loss: tensor(2.5356, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2200 Loss: tensor(2.4207, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2300 Loss: tensor(2.3582, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2400 Loss: tensor(2.3843, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2500 Loss: tensor(2.5195, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2600 Loss: tensor(2.2590, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2700 Loss: tensor(2.5968, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2800 Loss: tensor(2.3062, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2900 Loss: tensor(2.1639, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3000 Loss: tensor(2.3283, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3100 Loss: tensor(2.2586, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3200 Loss: tensor(2.2870, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3300 Loss: tensor(2.2782, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3400 Loss: tensor(2.3088, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3500 Loss: tensor(2.1690, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3600 Loss: tensor(2.3534, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3700 Loss: tensor(2.2695, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3800 Loss: tensor(2.2544, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3900 Loss: tensor(2.1363, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+c:\Users\RmT\Desktop\FER\8. semestar\Duboko učenje 1\Laboratorijske vježbe\Lab1\data.py:128: RuntimeWarning: invalid value encountered in longlong_scalars
+  recall_i = tp_i / (tp_i + fn_i)
+Train:
+0.8829833333333333
+[(0.9680342725325425, 0.9918959986493331), (0.9863134657836644, 0.9940670424206467), (0.9333439389118676, 0.9847264182611615), (0.9709398870807041, 0.9536780296852063), (nan, 0.0), 
+(0.9524238601549829, 0.9749123777900757), (0.8990068754774637, 0.9942548158161542), (0.9296673249278444, 0.9768555466879489), (0.93950058655941, 0.958126815928901), (0.5688334642576591, 0.9737771053958648)]
+[[5875    0    5    4  146    5    7    3   13   11]
+ [   1 6702    4    7   38    3    3   12   19    6]
+ [   8   20 5867   69  225   14    4   37   36    6]
+ [   0    3   16 5847   18   39    1   10   69   19]
+ [   0    0    0    0    0    0    0    0    0    0]
+ [   8    1   10   83   63 5285    8    7   53   31]
+ [   6    1    4    0  624   16 5884    0    8    2]
+ [   3    5   22   27  339    4    1 6120    5   57]
+ [  13    8   19   65  186   28    8   10 5606   24]
+ [   9    2   11   29 4203   27    2   66   42 5793]]
+Test:
+0.8606
+[(0.9436758893280632, 0.9744897959183674), (0.9647463456577816, 0.9885462555066079), (0.9187675070028011, 0.9534883720930233), (0.9322200392927309, 0.9396039603960396), (nan, 0.0), 
+(0.925601750547046, 0.9484304932735426), (0.8822966507177034, 0.9624217118997912), (0.9106976744186046, 0.9523346303501945), (0.9278242677824268, 0.9106776180698152), (0.5509736540664376, 0.9534192269573836)]
+[[ 955    0    4    2   25    6    7    0    7    6]
+ [   1 1122    6    0    9    4    2    4    9    6]
+ [   1    7  984   15   29    1    8   15   10    1]
+ [   3    1   12  949    2   11    1    9   21    9]
+ [   0    0    0    0    0    0    0    0    0    0]
+ [   4    1    0   23    5  846   13    1   16    5]
+ [  11    2    7    1   84   10  922    0    7    1]
+ [   4    0    9    9   53    2    2  979    6   11]
+ [   1    2    9    7   31    7    2    2  887    8]
+ [   0    0    1    4  744    5    1   18   11  962]]
+
+
+ Adam:
+ iter: 0 Loss: tensor(19.5006, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 100 Loss: tensor(3.9613, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 200 Loss: tensor(3.5062, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 300 Loss: tensor(3.0424, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 400 Loss: tensor(0.9047, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 500 Loss: tensor(0.6279, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 600 Loss: tensor(0.4135, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 700 Loss: tensor(0.4169, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 800 Loss: tensor(0.3801, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 900 Loss: tensor(0.3245, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1000 Loss: tensor(0.2229, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1100 Loss: tensor(0.1850, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1200 Loss: tensor(0.2312, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1300 Loss: tensor(0.1866, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1400 Loss: tensor(0.2052, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1500 Loss: tensor(0.1653, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1600 Loss: tensor(0.1822, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1700 Loss: tensor(0.1953, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1800 Loss: tensor(0.1574, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 1900 Loss: tensor(0.1824, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2000 Loss: tensor(0.1394, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2100 Loss: tensor(0.1308, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2200 Loss: tensor(0.1240, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2300 Loss: tensor(0.1504, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2400 Loss: tensor(0.1625, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2500 Loss: tensor(0.1254, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2600 Loss: tensor(0.1539, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2700 Loss: tensor(0.1209, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2800 Loss: tensor(0.1263, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 2900 Loss: tensor(0.1271, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3000 Loss: tensor(0.1103, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3100 Loss: tensor(0.1194, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3200 Loss: tensor(0.1265, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3300 Loss: tensor(0.1114, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3400 Loss: tensor(0.1089, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3500 Loss: tensor(0.1103, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3600 Loss: tensor(0.1322, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3700 Loss: tensor(0.1180, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3800 Loss: tensor(0.1160, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+iter: 3900 Loss: tensor(0.1118, device='cuda:0', dtype=torch.float64, grad_fn=<AddBackward0>)
+Train:
+0.9694666666666667
+[(0.9823232323232324, 0.985142664190444), (0.9830183106910809, 0.9873924651438742), (0.9668851907883678, 0.9654246391406512), (0.9671830751291021, 0.9469907029848312), (0.9758703895208549, 0.969188634029442), (0.9588665447897623, 0.967533665375392), (0.9808499916008735, 0.9866508955728287), (0.9752570694087404, 0.9688747007182761), (0.9522265824944549, 0.9538540420440951), (0.9493859940258879, 0.961674230963187)]
+[[5835    0   20    7    8   14   20    2   17   17]
+ [   1 6657   22   14    8    5    6   20   29   10]
+ [  12   18 5752   67   15    6    4   37   35    3]
+ [   1   12   29 5806    2   52    0   14   53   34]
+ [   2   10   23    1 5662    4   12   18   13   57]
+ [  16    4    5   96    7 5245   21    5   52   19]
+ [  17    3   18    1   14   32 5839    1   25    3]
+ [   4    7   33   35    9    5    1 6070    7   53]
+ [  24   25   49   71   15   38   15   11 5581   32]
+ [  11    6    7   33  102   20    0   87   39 5721]]
+Test:
+0.951
+[(0.9674465920651069, 0.9704081632653061), (0.9782419495213229, 0.9903083700440528), (0.9524733268671193, 0.9515503875968992), (0.937125748502994, 0.9297029702970298), (0.9631525076765609, 0.9582484725050916), (0.9193370165745857, 0.9327354260089686), (0.9565667011375388, 0.965553235908142), (0.9505813953488372, 0.9542801556420234), (0.9336099585062241, 0.9240246406570842), (0.9444444444444444, 0.9266600594648167)]
+[[ 951    0    4    0    1    7    7    1    6    6]
+ [   0 1124    7    2    1    1    2    4    3    5]
+ [   3    4  982   13    3    3    3   11    7    2]
+ [   1    2    5  939    1   19    0    9   20    6]
+ [   1    1    3    1  941    3    5    4    4   14]
+ [   8    0    1   32    1  832   11    0   13    7]
+ [   8    1    8    1    6    6  925    2    7    3]
+ [   3    0   10    6    2    2    1  981    7   20]
+ [   4    3   12   10    3   16    3    2  900   11]
+ [   1    0    0    6   23    3    1   14    7  935]]
